@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F8F7F5"
+    tools:context=".HealthpillActivity">
+
+    <!-- 툴바 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/choose_medicene_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily = "@font/pretendard"
+        android:text="약의 이름을 입력해주세요."
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 약의 이름 입력 -->
+    <EditText
+        android:id="@+id/medicine_name"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:hint="예시) 관절염 약"
+        android:background="@drawable/rounded_grey_background"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/choose_medicene_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- 시간 선택 텍스트 -->
+    <TextView
+        android:id="@+id/time_select_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily = "@font/pretendard"
+        android:text="먹어야 하는 시간을 선택해주세요."
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/medicine_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="8dp" />
+
+        <!-- 시와 분을 동시에 표시하는 텍스트뷰 -->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:background="@drawable/rounded_grey_background"
+        android:padding="8dp"
+        android:text="시 분"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/time_select_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
+
+
+    <!-- 요일 선택 텍스트 -->
+    <TextView
+        android:id="@+id/day_select_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily = "@font/pretendard"
+        android:text="먹어야 하는 요일을 선택해주세요."
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_time"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 요일 선택 버튼들 -->
+    <GridLayout
+        android:id="@+id/day_select_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="2"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/day_select_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/submit_button">
+
+        <ToggleButton
+            android:id="@+id/mon_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="월"
+            android:textOff="월"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/tue_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="화"
+            android:textOff="화"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/wed_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="수"
+            android:textOff="수"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/thu_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="목"
+            android:textOff="목"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/fri_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="금"
+            android:textOff="금"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/sat_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="토"
+            android:textOff="토"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/sun_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="일"
+            android:textOff="일"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+
+        <ToggleButton
+            android:id="@+id/daily_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="매일"
+            android:textOff="매일"
+            android:background="@drawable/rounded_grey_background"
+            android:layout_margin="4dp"/>
+    </GridLayout>
+
+    <!-- 제출 버튼 -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit_button"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:fontFamily = "@font/pretendard"
+        android:text="제출하기"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/border_test"
+        app:layout_constraintTop_toBottomOf="@id/day_select_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#F8F7F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/black"
+        app:itemIconSize="20dp"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearance"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

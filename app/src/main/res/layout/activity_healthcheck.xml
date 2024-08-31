@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F8F7F5"
+    tools:context=".HealthpillActivity">
+    <!-- 툴바 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Mood and Stress Level Section -->
+    <LinearLayout
+        android:id="@+id/mood_stress_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp">
+
+        <!-- Mood Section -->
+        <LinearLayout
+            android:id="@+id/mood_section"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/rounded_grey_background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard"
+                android:text="기분"
+                android:textSize="18sp"
+                android:textColor="#000" />
+
+            <!-- Mood Icons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Bad Mood Button -->
+                <LinearLayout
+                    android:id="@+id/mood_bad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/bad_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="나쁨"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- Neutral Mood Button -->
+                <LinearLayout
+                    android:id="@+id/mood_neutral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/neutral_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="보통"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- Good Mood Button -->
+                <LinearLayout
+                    android:id="@+id/mood_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/smile_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="좋음"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Stress Level Section -->
+        <LinearLayout
+            android:id="@+id/stress_section"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/rounded_grey_background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard"
+                android:text="스트레스 수준"
+                android:textSize="18sp"
+                android:textColor="#000" />
+
+            <!-- Stress Icons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Low Stress Button -->
+                <LinearLayout
+                    android:id="@+id/stress_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/bad_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="낮음"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- Medium Stress Button -->
+                <LinearLayout
+                    android:id="@+id/stress_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/neutral_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="보통"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- High Stress Button -->
+                <LinearLayout
+                    android:id="@+id/stress_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/smile_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="높음"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Symptoms Section -->
+    <GridLayout
+        android:id="@+id/symptoms_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/mood_stress_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Add your symptom buttons here -->
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="두통"
+            android:textOff="두통"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/rounded_grey_background"/>
+
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="피로감"
+            android:textOff="피로감"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/rounded_grey_background"/>
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="메스꺼움"
+            android:textOff="메스꺼움"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/rounded_grey_background"/>
+
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="요통"
+            android:textOff="요통"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/rounded_grey_background"/>
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="관절통"
+            android:textOff="관절통"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/rounded_grey_background"/>
+
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily = "@font/pretendard"
+            android:textOn="어지러움"
+            android:textOff="어지러움"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:background="@drawable/rounded_grey_background"/>
+
+
+    </GridLayout>
+
+    <!-- Sliders Section -->
+    <LinearLayout
+        android:id="@+id/sliders_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/symptoms_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Sleep Time Slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily = "@font/pretendard"
+                android:text="수면 시간: "
+                android:textSize="20sp" />
+
+            <!-- 수면 시간을 보여줄 TextView -->
+            <TextView
+                android:id="@+id/sleep_time_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7시간"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/sleep_time_slider"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:max="24"
+            android:progress="7" />
+
+        <!-- Water Intake Slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily = "@font/pretendard"
+                android:text="물 섭취량: "
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/water_time_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20%(퍼센트)"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/water_intake_slider"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:max="100"
+            android:progress="20" />
+
+        <!-- Exercise Time Slider -->
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily = "@font/pretendard"
+                android:text="운동 시간: "
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/exercise_time_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6시간"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/exercise_time_slider"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:max="24"
+            android:progress="6" />
+    </LinearLayout>
+
+    <!-- Save Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="저장하기"
+        android:textColor="#FFFFFF"
+        android:background = "@drawable/border_test"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/sliders_section"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

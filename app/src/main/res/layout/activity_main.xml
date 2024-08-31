@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F7F5">
+
+    <!-- 스크롤 가능한 내용 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- 상단 이미지 배경과 메시지 텍스트 -->
+            <RelativeLayout
+                android:id="@+id/rlImageBackground"
+                android:layout_width="0dp"
+                android:layout_height="282dp"
+                android:background="@drawable/rounded_background1"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- 상단 날짜 텍스트 -->
+                <TextView
+                    android:id="@+id/tvGreetingTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="2024.07.26.(금)"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:paddingBottom="8dp" />
+
+                <!-- 가운데 인사말 텍스트 -->
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="260dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tvGreetingTime"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="오늘 하루도 건강하고 시원하게 보내세요!"
+                    android:textSize="28sp"
+                    android:textColor="#000000"
+                    android:paddingBottom="16dp" />
+
+                <!-- 이미지 -->
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/dog_small" />
+            </RelativeLayout>
+
+            <!-- 복용약 알리미 섹션 -->
+            <RelativeLayout
+                android:id="@+id/llMedicationReminder"
+                android:layout_width="0dp"
+                android:layout_height="161dp"
+                android:background="@drawable/rounded_background"
+                android:padding="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/rlImageBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- 상단 아이콘 -->
+                <ImageView
+                    android:id="@+id/ivPillIcon"
+                    android:layout_width="33.28dp"
+                    android:layout_height="33.28dp"
+                    android:src="@drawable/health_pill"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+                <!-- 알림 제목 -->
+                <TextView
+                    android:id="@+id/tvMedicationReminderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="복용약 알리미"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_toEndOf="@id/ivPillIcon"
+                    android:layout_alignTop="@id/ivPillIcon"
+                    android:layout_marginStart="8dp" />
+
+                <!-- 복용 시간 및 약 -->
+                <TextView
+                    android:id="@+id/tvMedicationTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="오전 8시 A약 섭취"
+                    android:textSize="28sp"
+                    android:textColor="#F57C00"
+                    android:layout_below="@id/ivPillIcon"
+                    android:layout_marginTop="16dp" />
+
+                <!-- 하단 시계 아이콘 -->
+                <ImageView
+                    android:id="@+id/ivClockIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/clock_small"
+                    android:layout_below="@id/tvMedicationTime"
+                    android:layout_alignStart="@id/tvMedicationTime"
+                    android:layout_marginTop="10dp" />
+
+                <!-- 남은 시간 -->
+                <TextView
+                    android:id="@+id/tvMedicationCountdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="약 4시간 30분 남음"
+                    android:textSize="20sp"
+                    android:textColor="#757575"
+                    android:layout_toEndOf="@id/ivClockIcon"
+                    android:layout_alignTop="@id/ivClockIcon"
+                    android:layout_marginStart="8dp" />
+            </RelativeLayout>
+
+            <!-- 병원 알리미 섹션 -->
+            <RelativeLayout
+                android:id="@+id/llHospitalReminder"
+                android:layout_width="0dp"
+                android:layout_height="161dp"
+                android:background="@drawable/rounded_background"
+                android:padding="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/llMedicationReminder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- 상단 아이콘 -->
+                <ImageView
+                    android:id="@+id/ivHospitalIcon"
+                    android:layout_width="33.28dp"
+                    android:layout_height="33.28dp"
+                    android:src="@drawable/health_pill"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+                <!-- 알림 제목 -->
+                <TextView
+                    android:id="@+id/tvHospitalReminderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="병원 알리미"
+                    android:textSize="24sp"
+                    android:textColor="#000000"
+                    android:layout_toEndOf="@id/ivHospitalIcon"
+                    android:layout_alignTop="@id/ivHospitalIcon"
+                    android:layout_marginStart="8dp" />
+
+                <!-- 예약 시간 및 병원 -->
+                <TextView
+                    android:id="@+id/tvHospitalTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="오후 3시 B병원 방문"
+                    android:textSize="28sp"
+                    android:textColor="#3062d9"
+                    android:layout_below="@id/ivHospitalIcon"
+                    android:layout_marginTop="16dp" />
+
+                <!-- 하단 시계 아이콘 -->
+                <ImageView
+                    android:id="@+id/ivClockIconHospital"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/clock_small"
+                    android:layout_below="@id/tvHospitalTime"
+                    android:layout_alignStart="@id/tvHospitalTime"
+                    android:layout_marginTop="10dp" />
+
+                <!-- 남은 시간 -->
+                <TextView
+                    android:id="@+id/tvHospitalCountdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily = "@font/pretendard"
+                    android:text="약 6시간 30분 남음"
+                    android:textSize="20sp"
+                    android:textColor="#757575"
+                    android:layout_toEndOf="@id/ivClockIconHospital"
+                    android:layout_alignTop="@id/ivClockIconHospital"
+                    android:layout_marginStart="8dp" />
+            </RelativeLayout>
+
+            <!-- 최근 사용한 기능 섹션 -->
+            <LinearLayout
+                android:id="@+id/llRecentTabs"
+                android:layout_width="0dp"
+                android:layout_height="161dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_background"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/llHospitalReminder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- 상단 아이콘 및 제목 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/recent_small" />
+
+                    <TextView
+                        android:id="@+id/tvRecentTabsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최근 사용한 기능"
+                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="1"
+                    android:layout_gravity="center">
+
+                    <!-- 첫 번째 네모 -->
+                    <View
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_margin="8dp"
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/rounded_grey_background" />
+
+                    <!-- 두 번째 네모 -->
+                    <View
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_margin="8dp"
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/rounded_grey_background" />
+
+                    <!-- 세 번째 네모 -->
+                    <View
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:layout_margin="8dp"
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/rounded_grey_background" />
+                </GridLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F8F7F5"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/black"
+        app:itemIconSize="20dp"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearance" />
+</RelativeLayout>

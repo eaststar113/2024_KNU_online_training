@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">4dp</item> <!-- 텍스트와 아이콘 사이의 간격 -->
+    </style>
+    <style name="Theme.WiseLife." parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/pretendard</item>
+    </style>
+</resources>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F8F7F5"
+    tools:context=".HealthActivity">
+
+    <!-- 스크롤 가능한 영역 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view">
+
+        <!-- 스크롤 영역 내의 ConstraintLayout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp">
+
+            <!-- 상단 레이아웃 -->
+            <LinearLayout
+                android:id="@+id/topLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- 카테고리 버튼들 -->
+                <LinearLayout
+                    android:id="@+id/llCategoryButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnGeneral"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="일반"
+                        android:background="@drawable/border_test"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="8dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnEmotion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="건강"
+                        android:background="@drawable/border_test"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="8dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="병원"
+                        android:background="@drawable/border_test"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/calendarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/topLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                    android:id="@+id/calendarViewEmotion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mcv_showOtherDates="all"/>
+
+                <CalendarView
+                    android:id="@+id/calendarViewMood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+
+            <!-- 일정 리스트 -->
+            <RelativeLayout
+                android:id="@+id/llSchedule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/calendarLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp">
+
+                <!-- '일정' 탭 -->
+                <RelativeLayout
+                    android:id="@+id/llTodaySchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="@drawable/rounded_background">
+
+                    <ImageView
+                        android:id="@+id/pillSc1"
+                        android:layout_width="33.28dp"
+                        android:layout_height="33.28dp"
+                        android:src="@drawable/health_pill"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"/>
+
+                    <TextView
+                        android:id="@+id/tvTodayScheduleTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="일정"
+                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:layout_toEndOf="@id/pillSc1"
+                        android:layout_alignTop="@id/pillSc1"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/llTodayScheduleItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="오전 11시 병원 방문\n오후 4시 약 섭취\n"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:layout_below="@id/pillSc1"
+                        android:layout_marginTop="16dp"/>
+                </RelativeLayout>
+
+                <!-- '오늘의 건강' 탭 -->
+                <RelativeLayout
+                    android:id="@+id/llemotionSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/llTodaySchedule"
+                    android:background="@drawable/rounded_background">
+
+                    <ImageView
+                        android:id="@+id/pillSc2"
+                        android:layout_width="33.28dp"
+                        android:layout_height="33.28dp"
+                        android:src="@drawable/health_pill"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"/>
+
+                    <TextView
+                        android:id="@+id/tvEmotionScheduleTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="오늘의 건강"
+                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:layout_toEndOf="@id/pillSc2"
+                        android:layout_alignTop="@id/pillSc2"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/llEmotionScheduleItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="오전 11시 병원 방문\n오후 4시 약 섭취\n"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:layout_below="@id/pillSc2"
+                        android:layout_marginTop="16dp"/>
+                </RelativeLayout>
+
+                <!-- '오늘의 건강' 탭 -->
+                <RelativeLayout
+                    android:id="@+id/llhospitalSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/llemotionSchedule"
+                    android:background="@drawable/rounded_background">
+
+                    <ImageView
+                        android:id="@+id/pillSc3"
+                        android:layout_width="33.28dp"
+                        android:layout_height="33.28dp"
+                        android:src="@drawable/health_pill"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"/>
+
+                    <TextView
+                        android:id="@+id/tvHospitalScheduleTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="병원 기록"
+                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:layout_toEndOf="@id/pillSc3"
+                        android:layout_alignTop="@id/pillSc3"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/llHospitalScheduleItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="오전 11시 병원 방문\n오후 4시 약 섭취\n"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:layout_below="@id/pillSc3"
+                        android:layout_marginTop="16dp"/>
+                </RelativeLayout>
+
+                <!-- '다가오는 일정' 탭 -->
+                <RelativeLayout
+                    android:id="@+id/llUpcomingSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/llhospitalSchedule"
+                    android:padding="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rounded_background">
+
+                    <ImageView
+                        android:id="@+id/pillSc"
+                        android:layout_width="33.28dp"
+                        android:layout_height="33.28dp"
+                        android:src="@drawable/health_pill"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"/>
+
+                    <TextView
+                        android:id="@+id/tvUpcomingScheduleTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="다가오는 일정"
+                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:layout_toEndOf="@id/pillSc"
+                        android:layout_alignTop="@id/pillSc"
+                        android:layout_marginStart="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvUpcomingScheduleDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard"
+                        android:text="오전 11시 병원 방문\n오후 4시 약 섭취\n"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:layout_below="@id/pillSc"
+                        android:layout_marginTop="16dp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <!-- 약 기록 버튼 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnMedicineRecord"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:fontFamily="@font/pretendard"
+                android:background="@drawable/rounded_background"
+                android:textColor="#FF8A65"
+                android:text="약 기록"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/llSchedule"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@id/btnHealthRecord" />
+
+            <!-- 건강 기록 버튼 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHealthRecord"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:fontFamily="@font/pretendard"
+                android:text="건강 기록"
+                android:textSize="24sp"
+                android:background="@drawable/rounded_background"
+                android:textColor="#FF8A65"
+                app:layout_constraintTop_toBottomOf="@id/llSchedule"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/btnMedicineRecord" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHospitalRecord"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:fontFamily="@font/pretendard"
+                android:text="병원 기록"
+                android:textSize="24sp"
+                android:background="@drawable/rounded_background"
+                android:textColor="#FF8A65"
+                app:layout_constraintTop_toBottomOf="@id/btnMedicineRecord"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#F8F7F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/black"
+        app:itemIconSize="20dp"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearance"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

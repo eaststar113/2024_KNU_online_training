@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F8F7F5"
+    tools:context=".HealthpillActivity">
+
+    <!-- 툴바 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/choose_hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily = "@font/pretendard"
+        android:text="병원 이름을 입력해주세요."
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 약의 이름 입력 -->
+    <EditText
+        android:id="@+id/hospital_name"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:hint="예시) 재활 병원"
+        android:background="@drawable/rounded_grey_background"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/choose_hospital_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- 시간 선택 텍스트 -->
+    <TextView
+        android:id="@+id/hos_res_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily = "@font/pretendard"
+        android:text="병원 예약 시간을 선택해주세요."
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/hospital_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 시와 분을 동시에 표시하는 텍스트뷰 -->
+    <TextView
+        android:id="@+id/reservation_time"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:background="@drawable/rounded_grey_background"
+        android:padding="8dp"
+        android:text="시 분"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@id/hos_res_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
+
+
+
+
+    <!-- 제출 버튼 -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit_button"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:fontFamily = "@font/pretendard"
+        android:text="제출하기"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/border_test"
+        app:layout_constraintTop_toBottomOf="@id/reservation_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#F8F7F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/black"
+        app:itemIconSize="20dp"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearance"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

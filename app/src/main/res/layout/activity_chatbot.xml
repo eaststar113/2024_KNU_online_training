@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F8F7F5"
+    tools:context=".ChatbotActivity">
+
+    <!-- End Conversation Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_end_conversation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily = "@font/pretendard"
+        android:background="@drawable/button_background"
+        android:text="대화 종료"
+        android:textColor="#F38665"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:drawableLeft="@drawable/quill_off"
+        android:drawablePadding="8dp"/>
+
+    <!-- Hello Button -->
+    <TextView
+        android:id="@+id/button_hello"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:background="@drawable/border_test"
+        android:fontFamily = "@font/pretendard"
+        android:text="안녕하세요"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/button_end_conversation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:padding="16dp"/>
+    <!-- Scrollable TextView -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/button_end_conversation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/button_listen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/rounded_background"
+            android:fontFamily = "@font/pretendard"
+            android:text="듣는 중~"
+            android:textColor="@android:color/black"/>
+    </ScrollView>
+
+    <!-- Dog Image -->
+    <ImageView
+        android:id="@+id/image_dog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dog_big"
+        app:layout_constraintTop_toBottomOf="@id/button_hello"
+        app:layout_constraintBottom_toTopOf="@id/button_microphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:id="@+id/user_speak"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:background="@drawable/rounded_background"
+        android:fontFamily = "@font/pretendard"
+        android:text="사용자 담화 중"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/image_dog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:padding="16dp"/>
+
+    <!-- Microphone Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_microphone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/btn_voicecatch"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_microlisten"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/btn_voicelisten"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#F8F7F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/black"
+        app:itemIconSize="20dp"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearance"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

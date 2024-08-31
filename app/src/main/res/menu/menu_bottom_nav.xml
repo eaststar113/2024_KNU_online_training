@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/activity_home"
+        android:title="홈"
+        android:icon="@drawable/home_icon"/>
+    <item
+        android:id="@+id/activity_health"
+        android:title="건강"
+        android:icon="@drawable/health_icon"/>
+    <item
+        android:id="@+id/activiy_chatbot"
+        android:title="챗봇"
+        android:icon="@drawable/chat_icon"/>
+    <item
+        android:id="@+id/activity_learning"
+        android:title="교육"
+        android:icon="@drawable/learn_icon"/>
+</menu>
